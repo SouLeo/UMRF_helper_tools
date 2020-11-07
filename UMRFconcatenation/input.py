@@ -18,8 +18,6 @@ os.mkdir(umrf_output)
 
 umrf_graph_list = [x for x in umrf_graphs_dir.iterdir() if x.is_dir()]
 
-print(umrf_graph_list)
-
 for x in umrf_graph_list:
     umrf_graph_name = os.path.basename(x)
     index = str(umrf_graph_name)[5:]  # Hardcoded and assumes an naming scheme of umrf_X
@@ -28,7 +26,7 @@ for x in umrf_graph_list:
     new_graph_file = str(umrf_output / umrf_graph_name) + '.umrf.json'
     umrfgraph_jsons = {"graph_name": graph_name, "graph_description":""}  # DICTIONARY OF NEW JSON UMRF GRAPH TEMPLATE
     with open(new_graph_file, "w") as outfile:
-        umrfnodes_jsons = []  # DICTIONARY OF JSON OBJECTS OF EXISTING UMRF NODES IN GRAPH
+        umrfnodes_jsons = []  # LIST OF JSON OBJECTS OF EXISTING UMRF NODES IN GRAPH
         for filename in filenames:
             with open(filename) as infile:
                 contents = umrfnodes_jsons.append(json.load(infile))
